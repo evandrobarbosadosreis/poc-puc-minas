@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC.Integracao", "POC.Integracao\POC.Integracao.csproj", "{205E8D64-45A5-4098-9DA5-9B169DCA2B10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC.Processos", "POC.Processos\POC.Processos.csproj", "{CF34FCE9-BB4E-441B-9242-F9515AD7753B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC.Autos", "POC.Autos\POC.Autos.csproj", "{EE0B6110-9960-4B53-8369-E9F8EE54C97B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{205E8D64-45A5-4098-9DA5-9B169DCA2B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205E8D64-45A5-4098-9DA5-9B169DCA2B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205E8D64-45A5-4098-9DA5-9B169DCA2B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205E8D64-45A5-4098-9DA5-9B169DCA2B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF34FCE9-BB4E-441B-9242-F9515AD7753B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF34FCE9-BB4E-441B-9242-F9515AD7753B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF34FCE9-BB4E-441B-9242-F9515AD7753B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF34FCE9-BB4E-441B-9242-F9515AD7753B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE0B6110-9960-4B53-8369-E9F8EE54C97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0B6110-9960-4B53-8369-E9F8EE54C97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0B6110-9960-4B53-8369-E9F8EE54C97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0B6110-9960-4B53-8369-E9F8EE54C97B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
