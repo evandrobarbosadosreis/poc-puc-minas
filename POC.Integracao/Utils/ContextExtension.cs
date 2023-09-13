@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace POC.Integracao.Extensions;
+namespace POC.Integracao.Utils;
 
 public static class ContextExtension
 {

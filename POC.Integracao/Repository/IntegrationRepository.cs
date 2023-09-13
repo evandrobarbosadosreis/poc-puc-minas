@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using POC.Integracao.Entities;
-using POC.Integracao.Extensions;
+using POC.Integracao.Utils;
 
 namespace POC.Integracao.Repository;
 

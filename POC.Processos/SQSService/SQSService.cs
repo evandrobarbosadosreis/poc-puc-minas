@@ -11,6 +11,18 @@ public class SQSService : ISQSService
     private readonly IConfiguration _config;
     private readonly IAmazonSQS _client;
     
+    private string ServiceUrl 
+        => $"https://sqs.{_config.Region()}.amazonaws.com";
+
+    private string IntegrationQueueUrl
+        => $"{ServiceUrl}/{_config.Account()}/{_config.IntegrationQueue()}";
+    
+    private string SuccessQueueUrl
+        => $"{ServiceUrl}/{_config.Account()}/{_config.SuccessQueue()}";
+    
+    private string ErrorQueueUrl
+        => $"{ServiceUrl}/{_config.Account()}/{_config.ErrorQueue()}";
+    
     public SQSService(IConfiguration config)
     {
         _config = config;
@@ -25,14 +37,14 @@ public class SQSService : ISQSService
     private AmazonSQSConfig GetConfiguration() => new ()
     {
         RegionEndpoint = RegionEndpoint.GetBySystemName(_config.Region()),
-        ServiceURL = $"https://sqs.{_config.Region()}.amazonaws.com"
+        ServiceURL     = ServiceUrl
     };
-
+    
     public async Task<RequestDTO?> ReceiveIntegrationRequest()
     {
         var request = new ReceiveMessageRequest
         {
-            QueueUrl            = _config.ConsumerUrl(),
+            QueueUrl            = IntegrationQueueUrl,
             MaxNumberOfMessages = 1,
             WaitTimeSeconds     = 10
         };
@@ -47,21 +59,19 @@ public class SQSService : ISQSService
     }
 
     public Task DeleteMessage(string messageId)
-        => _client.DeleteMessageAsync(
-            _config.ConsumerUrl(), 
-            messageId);
+        => _client.DeleteMessageAsync(IntegrationQueueUrl, messageId);
 
     public async Task SendSuccessEvent(string number)
         => await _client.SendMessageAsync(new SendMessageRequest
         {
-            QueueUrl    = _config.SuccessUrl(),
+            QueueUrl    = SuccessQueueUrl,
             MessageBody = number
         });
 
     public async Task SendFailureEvent(string? number, string message) 
         => await _client.SendMessageAsync(new SendMessageRequest
         {
-            QueueUrl    = _config.ErrorUrl(),
+            QueueUrl    = ErrorQueueUrl,
             MessageBody = JsonSerializer.Serialize(new { number, message })
         });
 }

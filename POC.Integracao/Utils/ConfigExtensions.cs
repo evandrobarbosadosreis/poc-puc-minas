@@ -1,4 +1,4 @@
-namespace POC.Integracao.Extensions;
+namespace POC.Integracao.Utils;
 
 public static class ConfigExtensions
 {

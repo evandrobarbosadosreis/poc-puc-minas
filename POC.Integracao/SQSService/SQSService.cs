@@ -1,7 +1,7 @@
 using Amazon;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using POC.Integracao.Extensions;
+using POC.Integracao.Utils;
 
 namespace POC.Integracao.SQSService;
 
