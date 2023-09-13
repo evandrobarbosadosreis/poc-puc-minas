@@ -3,7 +3,7 @@ using Amazon.SQS;
 using Amazon.SQS.Model;
 using POC.Integracao.Extensions;
 
-namespace POC.Integracao.Services;
+namespace POC.Integracao.SQSService;
 
 public class SQSService : ISQSService
 {

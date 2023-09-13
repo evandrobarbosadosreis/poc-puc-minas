@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using POC.Integracao.Entities;
 
-namespace POC.Integracao.Infrastructure;
+namespace POC.Integracao.Repository;
 
 public class AppDbContext : DbContext
 {

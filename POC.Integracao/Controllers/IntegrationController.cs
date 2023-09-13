@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using POC.Integracao.Infrastructure;
-using POC.Integracao.Services;
+using POC.Integracao.Repository;
+using POC.Integracao.SQSService;
 
 namespace POC.Integracao.Controllers;
 

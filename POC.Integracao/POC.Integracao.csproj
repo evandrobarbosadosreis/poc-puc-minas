@@ -7,7 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.7" />
         <PackageReference Include="AWSSDK.SQS" Version="3.7.200.37" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.21" />

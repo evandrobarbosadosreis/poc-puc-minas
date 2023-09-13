@@ -1,25 +1,26 @@
+using Microsoft.EntityFrameworkCore;
+using POC.Processos.Consumer;
+using POC.Processos.Integration;
+using POC.Processos.Repository;
+using POC.Processos.SQSService;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase("db"), ServiceLifetime.Singleton);
+builder.Services.AddScoped<IProcessRepository, ProcessRepository>();
+builder.Services.AddScoped<ITribunalApi, TribunalSerivce>();
+builder.Services.AddScoped<ISQSService, SQSService>();
+
+builder.Services.AddHostedService<SQSConsumer>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

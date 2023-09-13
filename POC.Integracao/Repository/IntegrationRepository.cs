@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using POC.Integracao.Entities;
 using POC.Integracao.Extensions;
 
-namespace POC.Integracao.Infrastructure;
+namespace POC.Integracao.Repository;
 
 public class IntegrationRepository : IIntegrationRepository
 {

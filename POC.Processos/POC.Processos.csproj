@@ -7,7 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <PackageReference Include="AutoBogus" Version="2.13.1" />
+        <PackageReference Include="AWSSDK.SQS" Version="3.7.200.37" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.21" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 using POC.Integracao.Entities;
 
-namespace POC.Integracao.Infrastructure;
+namespace POC.Integracao.Repository;
 
 public interface IIntegrationRepository
 {

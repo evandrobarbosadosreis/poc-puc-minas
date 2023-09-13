@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using POC.Integracao.Infrastructure;
-using POC.Integracao.Services;
+using POC.Integracao.Repository;
+using POC.Integracao.SQSService;
 
 var builder = WebApplication.CreateBuilder(args);
 

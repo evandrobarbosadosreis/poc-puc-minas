@@ -1,4 +1,4 @@
-namespace POC.Integracao.Services;
+namespace POC.Integracao.SQSService;
 
 public interface ISQSService
 {
