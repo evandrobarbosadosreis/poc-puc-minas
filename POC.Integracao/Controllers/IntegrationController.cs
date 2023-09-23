@@ -23,7 +23,18 @@ public class IntegrationController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        await _repository.Create(request.Number);
+        var integration = await _repository.GetFirstBy(request.Number);
+
+        if (integration is null)
+        {
+            await _repository.Create(request.Number);    
+        }
+        else
+        {
+            integration.MarkAsPending();
+
+            await _repository.Update(integration);
+        }
 
         await amazonSQS.RequestNewIntegration(request.Number);
         

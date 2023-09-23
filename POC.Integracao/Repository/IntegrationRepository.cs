@@ -31,4 +31,19 @@ public class IntegrationRepository : IIntegrationRepository
             .WhereIf(number, x => x.Number.Contains(number))
             .ToListAsync();
     }
+
+    public Task<Integration?> GetFirstBy(string number)
+    {
+        if (string.IsNullOrWhiteSpace(number)) throw new ArgumentException();
+        
+        return _dbContext
+            .Set<Integration>()
+            .FirstOrDefaultAsync(x => x.Number.Equals(number));
+    }
+
+    public async Task Update(Integration integration)
+    {
+        _dbContext.Update(integration);
+        await _dbContext.SaveChangesAsync();
+    }
 }

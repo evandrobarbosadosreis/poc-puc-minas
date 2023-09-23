@@ -14,8 +14,17 @@ public class ProcessRepository : IProcessRepository
         _dbContext = dbContext;
     }
     
-    public async Task<Process> Create(ProcessDTO source, CancellationToken cancellation)
-    {        
+    public async Task<Process> CreateOrReplace(ProcessDTO source, CancellationToken cancellation)
+    {
+        var current = await _dbContext
+            .Set<Process>()
+            .FirstOrDefaultAsync(x => x.Number == source.Number, cancellation);
+
+        if (current is not null)
+        {
+            _dbContext.Remove(current);
+        }
+        
         var process = new Process(
             source.Number, 
             source.Date);

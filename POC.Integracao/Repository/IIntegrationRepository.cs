@@ -4,6 +4,8 @@ namespace POC.Integracao.Repository;
 
 public interface IIntegrationRepository
 {
-    public Task<Integration> Create(string number);
-    public Task<List<Integration>> GetBy(string number);
+    Task<Integration> Create(string number);
+    Task<List<Integration>> GetBy(string number);
+    Task<Integration?> GetFirstBy(string number);
+    Task Update(Integration integration);
 }

@@ -14,7 +14,7 @@ builder.Services.AddScoped<IProcessRepository, ProcessRepository>();
 builder.Services.AddScoped<ITribunalApi, TribunalSerivce>();
 builder.Services.AddScoped<ISQSService, SQSService>();
 
-builder.Services.AddHostedService<SQSConsumer>();
+builder.Services.AddHostedService<CommandSQSConsumer>();
 
 var app = builder.Build();
 

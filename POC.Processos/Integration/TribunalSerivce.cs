@@ -6,7 +6,7 @@ public class TribunalSerivce : ITribunalApi
 {
     public Task<ProcessDTO> GetProcessData(string number)
     {
-        Thread.Sleep(5000);
+        Thread.Sleep(10000);
         
         if (number is "0")
         {

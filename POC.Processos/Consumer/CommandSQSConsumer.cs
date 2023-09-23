@@ -4,11 +4,11 @@ using POC.Processos.SQSService;
 
 namespace POC.Processos.Consumer;
 
-public class SQSConsumer : BackgroundService
+public class CommandSQSConsumer : BackgroundService
 {
     private readonly IServiceProvider _provider;
 
-    public SQSConsumer(IServiceProvider provider)
+    public CommandSQSConsumer(IServiceProvider provider)
     {
         _provider = provider;
     }
@@ -30,7 +30,7 @@ public class SQSConsumer : BackgroundService
             try
             {
                 var process = await tribunal.GetProcessData(request.Number);
-                await repository.Create(process, stoppingToken);
+                await repository.CreateOrReplace(process, stoppingToken);
                 await service.SendSuccessEvent(request.Number);
                 await service.DeleteMessage(request.MessageId);
             }
